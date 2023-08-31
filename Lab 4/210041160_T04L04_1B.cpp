@@ -13,7 +13,7 @@ private:
     int height;
 
 public:
-    ZooAnimal(string animalname = " “” ", int birthyear = 2023, int cagenumber = 0, float Weight = 1, int Height = 1)
+    ZooAnimal(string animalname = "", int birthyear = 2023, int cagenumber = 0, float Weight = 1, int Height = 1)
     {
         nameOfAnimal = animalname;
         birthYear = birthyear;

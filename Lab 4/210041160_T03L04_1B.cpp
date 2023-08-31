@@ -67,9 +67,9 @@ public:
         }
     }
 
-    void giveInterest()
+    void giveInterest(float interest = 0.03)
     {
-        float interestAmount = balance * 0.03;
+        float interestAmount = balance * interest;
         balance += interestAmount;
 
         float sourceTaxAmount = balance * 0.1;
@@ -93,7 +93,7 @@ int main()
     b1.ShowBalance();
     b1.withdraw(5000);
     b1.ShowBalance();
-    b1.giveInterest();
+    b1.giveInterest(10);
     b1.ShowBalance();
     cout << endl;
     b1.ShowInfo();
