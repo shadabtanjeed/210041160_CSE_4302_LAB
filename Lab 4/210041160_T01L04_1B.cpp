@@ -94,6 +94,8 @@ int main()
 
     c1.setValue(0);
 
+    cout << c1.getValue() << endl;
+
     c1.add(10);
     c1.add(7);
     c1.multiply(31);
