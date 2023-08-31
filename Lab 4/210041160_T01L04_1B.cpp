@@ -82,13 +82,12 @@ public:
 int main()
 {
     Calculator c1;
-    Calculator c2(10);
 
     /*
-
-
+    Calculator c2(10);
     cout << c2.getValue() << endl;
     */
+
     c1.setValue(5);
 
     cout << c1.getValue() << endl;
