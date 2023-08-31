@@ -28,7 +28,6 @@ public:
         accountType = accType;
         balance = initialBalance;
         minimumBalance = minBalance;
-        ShowInfo();
     }
 
     void ShowInfo()
@@ -41,6 +40,11 @@ public:
         cout << endl;
     }
 
+    void ShowBalance()
+    {
+        cout << "Current Balance: " << balance << endl;
+    }
+
     void deposit(float value)
     {
         if (value < 0)
@@ -48,7 +52,6 @@ public:
         else
         {
             balance += value;
-            ShowInfo();
         }
     }
 
@@ -61,7 +64,6 @@ public:
         else
         {
             balance -= value;
-            ShowInfo();
         }
     }
 
@@ -71,7 +73,6 @@ public:
         float sourceTaxAmount = interestAmount * 0.1;
 
         balance += interestAmount - sourceTaxAmount;
-        ShowInfo();
     }
 
     ~BankAccount()
@@ -85,15 +86,27 @@ int main()
 {
     BankAccount b1(12345, "Shadab", "Savings", 100000, 10000);
     b1.deposit(5000);
+    b1.ShowBalance();
     b1.withdraw(99000);
+    b1.ShowBalance();
     b1.withdraw(5000);
+    b1.ShowBalance();
     b1.giveInterest();
+    b1.ShowBalance();
+    cout << endl;
+    b1.ShowInfo();
 
     b1.SetAccountInfo(64599, "Tanjeed", "Current", 5000, 1000);
     b1.deposit(5000);
+    b1.ShowBalance();
     b1.withdraw(9001);
+    b1.ShowBalance();
     b1.withdraw(5000);
+    b1.ShowBalance();
     b1.giveInterest();
+    b1.ShowBalance();
+    cout << endl;
+    b1.ShowInfo();
 
     return 0;
 }
