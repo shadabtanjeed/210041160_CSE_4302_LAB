@@ -70,9 +70,11 @@ public:
     void giveInterest()
     {
         float interestAmount = balance * 0.03;
-        float sourceTaxAmount = interestAmount * 0.1;
+        balance += interestAmount;
 
-        balance += interestAmount - sourceTaxAmount;
+        float sourceTaxAmount = balance * 0.1;
+
+        balance -= sourceTaxAmount;
     }
 
     ~BankAccount()
