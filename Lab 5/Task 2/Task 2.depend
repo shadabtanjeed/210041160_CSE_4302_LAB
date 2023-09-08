@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1694084001 source:e:\3rd semester\cse 4302\210041160_cse_4302_lab\lab 5\task 2\student.cpp
+	"student.h"
+
+1694084113 e:\3rd semester\cse 4302\210041160_cse_4302_lab\lab 5\task 2\student.h
+	<iostream>
+	<string>
+

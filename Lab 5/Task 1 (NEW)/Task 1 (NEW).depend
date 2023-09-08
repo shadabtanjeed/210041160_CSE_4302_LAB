@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1584205420 source:e:\3rd semester\cse 4302\210041160_cse_4302_lab\lab 5\task 1 (new)\main.cpp
+	<iostream>
+
+1694082342 source:e:\3rd semester\cse 4302\210041160_cse_4302_lab\lab 5\task 1 (new)\savingsaccount.cpp
+	"SavingsAccount.h"
+
+1694082485 e:\3rd semester\cse 4302\210041160_cse_4302_lab\lab 5\task 1 (new)\savingsaccount.h
+	<iostream>
+
