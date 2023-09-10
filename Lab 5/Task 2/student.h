@@ -1,64 +1,67 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include <iostream>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
-class student
-{
-public:
-    student();
-    ~student();
+class Student {
+private:
+    string name;
+    string dateOfBirth;
+    int id;
+    float cgpa;
 
-    void setName(const string& newName)
-    {
+public:
+
+    void setName(const string &newName) {
         name = newName;
     }
-    void setBirthDay(const string& newBirthDay)
-    {
-        birth_day = newBirthDay;
-    }
-    void setId(const string& newId)
-    {
-        id = newId;
-    }
-    void setCgpa(const string& newCgpa)
-    {
-        cgpa = newCgpa;
+
+    void setDateOfBirth(const string &newDateOfBirth) {
+        dateOfBirth = newDateOfBirth;
     }
 
-    string getName() const
-    {
+    void setId(int newId) {
+        id = newId;
+    }
+
+    void setCGPA(float newCGPA) {
+        cgpa = newCGPA;
+    }
+
+    string getName() const {
         return name;
     }
-    string getBirthDay() const
-    {
-        return birth_day;
+
+    string getDateOfBirth() const {
+        return dateOfBirth;
     }
-    string getId() const
-    {
+
+    int getId() const {
         return id;
     }
-    string getCgpa() const
-    {
+
+    float getCGPA() const {
         return cgpa;
     }
 
-    void setInfo(const string& newName, const string& newBirthDay, const string& newId, const string& newCgpa);
-    void getInfo() {
-        cout<<"Name: "<<name<<endl;
-        cout<<"Birthday: "<<birth_day<<endl;
-        cout<<"Student ID: "<<id<<endl;
-        cout<<"CGPA: "<<cgpa<<endl;
 
+    void setInfo(const string &newName, const string &newDateOfBirth, int newId, float newCGPA) {
+        setName(newName);
+        setDateOfBirth(newDateOfBirth);
+        setId(newId);
+        setCGPA(newCGPA);
     }
 
-private:
-    string name;
-    string birth_day;
-    string id;
-    string cgpa;
+
+    void getInfo() const {
+        cout << "Name: " << getName() << endl;
+        cout << "Date of Birth: " << getDateOfBirth() << endl;
+        cout << "ID: " << getId() << endl;
+        cout << "CGPA: " << getCGPA() << endl;
+    }
 };
 
-#endif // STUDENT_H
+#endif

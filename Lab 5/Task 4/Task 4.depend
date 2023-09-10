@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1694320084 source:e:\3rd semester\cse 4302\210041160_cse_4302_lab\lab 5\task 4\employeeinfo.cpp
+	"employeeinfo.h"
+
+1694320164 e:\3rd semester\cse 4302\210041160_cse_4302_lab\lab 5\task 4\employeeinfo.h
+	<iostream>
+	<string>
+
