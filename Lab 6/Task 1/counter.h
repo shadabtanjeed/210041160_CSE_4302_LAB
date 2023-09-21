@@ -115,11 +115,32 @@ public:
             return false;
     }
 
-    Counter operator+=(Counter &c2)
+    Counter &operator+=(const Counter &c2)
     {
-        Counter temp;
-        temp.count = count + c2.count;
+        count += c2.count;
+        incrementStep = max(incrementStep, c2.incrementStep);
+        return *this;
+    }
+
+    Counter &operator=(const Counter &c2)
+    {
+
+        count = c2.count;
+        incrementStep = c2.incrementStep;
+        return *this;
+    }
+
+    Counter operator++(int)
+    {
+        Counter temp(*this);
+        count += incrementStep;
         return temp;
+    }
+
+    Counter &operator++()
+    {
+        count += incrementStep;
+        return *this;
     }
 };
 

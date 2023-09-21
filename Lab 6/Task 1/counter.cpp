@@ -52,4 +52,16 @@ int main()
     c1 += c2;
 
     cout << c1.getCount() << endl;
+
+    c1 = c2;
+    c1.increment();
+    cout << c1.getCount() << endl;
+
+    c1++;
+    c1.increment();
+    cout << c1.getCount() << endl;
+
+    ++c1;
+    c1.increment();
+    cout << c1.getCount() << endl;
 }
