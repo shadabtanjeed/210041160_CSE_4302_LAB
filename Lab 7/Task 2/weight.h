@@ -8,7 +8,7 @@ class Weight
 {
 
 private:
-    const double kgToPound;
+    double kgToPound;
     int pound;
     double ounce;
 
