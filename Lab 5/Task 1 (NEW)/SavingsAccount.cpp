@@ -9,10 +9,13 @@ SavingsAccount::SavingsAccount()
     totalObjectsCreated++;
 }
 
+/*
 SavingsAccount::~SavingsAccount()
 {
     totalObjectsDestroyed++;
+    cout << "miaoi" << endl;
 }
+*/
 
 int main()
 {
@@ -41,7 +44,7 @@ int main()
     cout << "Saver 2 Total Balance: " << saver2.GetSavingsBalance() << endl;
 
     cout << "Total Objects Created: " << SavingsAccount::GetTotalObjectsCreated() << endl;
-    cout << "Total Objects Destroyed: " << SavingsAccount::GetTotalObjectsDestroyed() << endl;
+    cout << "Total Objects Destroyed: " << saver1.GetTotalObjectsDestroyed() << endl;
 
     return 0;
 }

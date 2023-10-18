@@ -8,37 +8,46 @@ class SavingsAccount
 {
 public:
     SavingsAccount();
-    ~SavingsAccount();
+    ~SavingsAccount()
+    {
+        totalObjectsDestroyed++;
+        cout << totalObjectsDestroyed << "miao" << endl;
+    }
 
-    double calculateMonthlyInterest() {
+    double calculateMonthlyInterest()
+    {
         double temp = (annualInterestRate / 12) / 100;
         double temp2 = savingsBalance * temp;
         savingsBalance = savingsBalance + temp2;
         return temp2;
     }
 
-    static void modifyInterestRate(double value) {
+    static void modifyInterestRate(double value)
+    {
         annualInterestRate = value;
     }
 
-    double GetSavingsBalance() {
+    double GetSavingsBalance()
+    {
         return savingsBalance;
     }
 
-    void SetSavingsBalance(double value) {
+    void SetSavingsBalance(double value)
+    {
         savingsBalance = value;
     }
 
-    static int GetTotalObjectsCreated() {
+    static int GetTotalObjectsCreated()
+    {
         return totalObjectsCreated;
     }
 
-    static int GetTotalObjectsDestroyed() {
+    static int GetTotalObjectsDestroyed()
+    {
         return totalObjectsDestroyed;
     }
 
 protected:
-
 private:
     static double annualInterestRate;
     double savingsBalance;
