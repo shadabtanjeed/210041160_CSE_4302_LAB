@@ -9,8 +9,13 @@ using namespace std;
 class Account
 {
 public:
-    Account();
-    ~Account();
+    Account()
+    {
+    }
+
+    ~Account()
+    {
+    }
 
     string getaccountNo() const
     {
