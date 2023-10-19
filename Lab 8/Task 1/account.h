@@ -47,6 +47,11 @@ public:
         balance = val;
     }
 
+    void description()
+    {
+        cout << "Account class: This is a basic account." << endl;
+    }
+
 protected:
 private:
     string accountNo;
@@ -57,15 +62,18 @@ private:
 class CurrentAccount : public Account
 {
 private:
-    const static int serviceCharge = 100;
-    const static int accountPrefix = 100;
+    static const int serviceCharge = 100;
+    static const int accountPrefix = 100;
     static int serial;
-    string nextAccountNo;
+    string nextAccountNo()
+    {
+        return to_string(accountPrefix) + "-" + to_string(serial);
+    }
 
 public:
     CurrentAccount()
     {
-        nextAccountNo = to_string(accountPrefix) + "-" + to_string(serial);
+        setaccountNo(nextAccountNo());
         serial++;
     }
 
@@ -87,6 +95,11 @@ public:
     {
         return serial;
     }
+
+    void description()
+    {
+        cout << "CurrentAccount class: This is a current account with a service charge of " << serviceCharge << " and account prefix " << accountPrefix << "." << endl;
+    }
 };
 
 class SavingsAccount : public Account
@@ -95,14 +108,17 @@ class SavingsAccount : public Account
 private:
     float interestRate;
     float monthlyDepositAmount;
-    const static int accountPrefix = 200;
+    static const int accountPrefix = 200;
     static int serial;
-    string nextAccountNo;
+    string nextAccountNo()
+    {
+        return to_string(accountPrefix) + "-" + to_string(serial);
+    }
 
 public:
     SavingsAccount()
     {
-        nextAccountNo = to_string(accountPrefix) + "-" + to_string(serial);
+        setaccountNo(nextAccountNo());
         serial++;
     }
 
@@ -135,9 +151,9 @@ public:
         return serial;
     }
 
-    string getAccountNo()
+    void description()
     {
-        return nextAccountNo;
+        cout << "SavingsAccount class: This is a savings account with an interest rate of " << interestRate << "%, monthly deposit amount of " << monthlyDepositAmount << ", and account prefix " << accountPrefix << "." << endl;
     }
 };
 
@@ -146,14 +162,17 @@ class MonthlyDepositScheme : public Account
 private:
     float interestRate;
     float monthlyDepositAmount;
-    const static int accountPrefix = 300;
+    static const int accountPrefix = 300;
     static int serial;
-    string nextAccountNo;
+    string nextAccountNo()
+    {
+        return to_string(accountPrefix) + "-" + to_string(serial);
+    }
 
 public:
     MonthlyDepositScheme()
     {
-        nextAccountNo = to_string(accountPrefix) + "-" + to_string(serial);
+        setaccountNo(nextAccountNo());
         serial++;
     }
 
@@ -186,9 +205,9 @@ public:
         return serial;
     }
 
-    string getAccountNo()
+    void description()
     {
-        return nextAccountNo;
+        cout << "MonthlyDepositScheme class: This is a monthly deposit scheme with an interest rate of " << interestRate << "%, monthly deposit amount of " << monthlyDepositAmount << ", and account prefix " << accountPrefix << "." << endl;
     }
 };
 
@@ -197,14 +216,17 @@ class LoanAccount : public Account
 private:
     float interestRate;
     float monthlyDepositAmount;
-    const static int accountPrefix = 900;
+    static const int accountPrefix = 900;
     static int serial;
-    string nextAccountNo;
+    string nextAccountNo()
+    {
+        return to_string(accountPrefix) + "-" + to_string(serial);
+    }
 
 public:
     LoanAccount()
     {
-        nextAccountNo = to_string(accountPrefix) + "-" + to_string(serial);
+        setaccountNo(nextAccountNo());
         serial++;
     }
 
@@ -237,9 +259,9 @@ public:
         return serial;
     }
 
-    string getAccountNo()
+    void description()
     {
-        return nextAccountNo;
+        cout << "LoanAccount class: This is a loan account with an interest rate of " << interestRate << "%, monthly deposit amount of " << monthlyDepositAmount << ", and account prefix " << accountPrefix << "." << endl;
     }
 };
 

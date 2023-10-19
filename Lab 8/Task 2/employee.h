@@ -7,29 +7,27 @@ using namespace std;
 class Employee
 {
 public:
-    Employee(string n, string id, float sal, bool duty)
+    Employee(string n, string id, bool duty)
+        : Name(n), emp_id(id), onDuty(duty)
     {
-        Name = n;
-        emp_id = id;
-        monthly_salary = sal;
-        onDuty = duty;
     }
 
-    string GetName() { return Name; }
-    void SetName(string val) { Name = val; }
-    string Getemp_id() { return emp_id; }
-    void Setemp_id(string val) { emp_id = val; }
-    float Getmonthly_salary() { return monthly_salary; }
-    void Setmonthly_salary(float val) { monthly_salary = val; }
-    bool GetonDuty() { return onDuty; }
-    void SetonDuty(bool val) { onDuty = val; }
+    string GetName() const { return Name; }
+    string Getemp_id() const { return emp_id; }
+    bool GetonDuty() const { return onDuty; }
+    float Getmonthly_salary() const { return monthly_salary; }
 
-    float yearlyIncome()
+    float yearlyIncome() const
     {
         return monthly_salary * 12;
     }
 
 protected:
+    void SetMonthlySalary(float salary)
+    {
+        monthly_salary = salary;
+    }
+
 private:
     string Name;
     string emp_id;
@@ -39,31 +37,31 @@ private:
 
 class Manager : public Employee
 {
-
 public:
-    Manager(string n, string id, float sal, bool duty) : Employee(n, id, sal, duty)
+    Manager(string n, string id, bool duty)
+        : Employee(n, id, duty)
     {
-        Setmonthly_salary(10000);
+        SetMonthlySalary(10000);
     }
 };
 
 class Engineer : public Employee
 {
-
 public:
-    Engineer(string n, string id, float sal, bool duty) : Employee(n, id, sal, duty)
+    Engineer(string n, string id, bool duty)
+        : Employee(n, id, duty)
     {
-        Setmonthly_salary(8000);
+        SetMonthlySalary(8000);
     }
 };
 
 class Designer : public Employee
 {
-
 public:
-    Designer(string n, string id, float sal, bool duty) : Employee(n, id, sal, duty)
+    Designer(string n, string id, bool duty)
+        : Employee(n, id, duty)
     {
-        Setmonthly_salary(7000);
+        SetMonthlySalary(7000);
     }
 };
 

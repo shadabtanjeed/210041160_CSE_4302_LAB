@@ -1,76 +1,9 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 
+#include <string>
 #include <iostream>
 using namespace std;
-
-class Employee
-{
-public:
-    Employee(string n, string id, float sal, bool duty)
-    {
-        Name = n;
-        emp_id = id;
-        monthly_salary = sal;
-        onDuty = duty;
-    }
-
-    string GetName() { return Name; }
-    void SetName(string val) { Name = val; }
-    string Getemp_id() { return emp_id; }
-    void Setemp_id(string val) { emp_id = val; }
-    float Getmonthly_salary() { return monthly_salary; }
-    void Setmonthly_salary(float val) { monthly_salary = val; }
-    bool GetonDuty() { return onDuty; }
-    void SetonDuty(bool val) { onDuty = val; }
-
-    float yearlyIncome()
-    {
-        return monthly_salary * 12;
-    }
-
-    Address present;
-    Address permanent;
-    ContactInformation personal;
-    ContactInformation emergency;
-
-protected:
-private:
-    string Name;
-    string emp_id;
-    float monthly_salary;
-    bool onDuty;
-};
-
-class Manager : public Employee
-{
-
-public:
-    Manager(string n, string id, float sal, bool duty) : Employee(n, id, sal, duty)
-    {
-        Setmonthly_salary(10000);
-    }
-};
-
-class Engineer : public Employee
-{
-
-public:
-    Engineer(string n, string id, float sal, bool duty) : Employee(n, id, sal, duty)
-    {
-        Setmonthly_salary(8000);
-    }
-};
-
-class Designer : public Employee
-{
-
-public:
-    Designer(string n, string id, float sal, bool duty) : Employee(n, id, sal, duty)
-    {
-        Setmonthly_salary(7000);
-    }
-};
 
 class Address
 {
@@ -152,22 +85,23 @@ private:
     string email;
 
 public:
-    int GetPrimary_phone()
+    int GetPrimaryPhone()
     {
         return primary_phone;
     }
 
-    void SetPrimary_phone(int val)
+    void SetPrimaryPhone(int val)
     {
         primary_phone = val;
     }
 
-    int GetSecondary_phone()
+    int GetSecondaryPhone()
     {
         return secondary_phone;
     }
 
-    void SetSecondary_phone(int val)
+    void SetSecondaryPhone(
+        int val)
     {
         secondary_phone = val;
     }
@@ -180,6 +114,97 @@ public:
     void SetEmail(string val)
     {
         email = val;
+    }
+};
+
+class Employee
+{
+public:
+    Employee(string n, string id, float sal, bool duty)
+        : Name(n), emp_id(id), monthly_salary(sal), onDuty(duty) {}
+
+    string GetName()
+    {
+        return Name;
+    }
+
+    void SetName(string val) { Name = val; }
+
+    string GetEmpId()
+    {
+        return emp_id;
+    }
+
+    void SetEmpId(string val)
+    {
+        emp_id = val;
+    }
+
+    float GetMonthlySalary()
+    {
+        return monthly_salary;
+    }
+
+    void SetMonthlySalary(float val)
+    {
+        monthly_salary = val;
+    }
+
+    bool GetOnDuty()
+    {
+        return onDuty;
+    }
+
+    void SetOnDuty(bool val)
+    {
+        onDuty = val;
+    }
+
+    float YearlyIncome()
+    {
+        return monthly_salary * 12;
+    }
+
+    Address present;
+    Address permanent;
+    ContactInformation personal;
+    ContactInformation emergency;
+
+protected:
+private:
+    string Name;
+    string emp_id;
+    float monthly_salary;
+    bool onDuty;
+};
+
+class Manager : public Employee
+{
+public:
+    Manager(string n, string id, float sal, bool duty)
+        : Employee(n, id, sal, duty)
+    {
+        SetMonthlySalary(10000);
+    }
+};
+
+class Engineer : public Employee
+{
+public:
+    Engineer(string n, string id, float sal, bool duty)
+        : Employee(n, id, sal, duty)
+    {
+        SetMonthlySalary(8000);
+    }
+};
+
+class Designer : public Employee
+{
+public:
+    Designer(string n, string id, float sal, bool duty)
+        : Employee(n, id, sal, duty)
+    {
+        SetMonthlySalary(7000);
     }
 };
 
