@@ -10,5 +10,8 @@
     "**/.exe": true,
     "node_modules/": true
   },
-  "hide-files.files": []
+  "hide-files.files": [],
+  "files.associations": {
+    "iostream": "cpp"
+  }
 }
