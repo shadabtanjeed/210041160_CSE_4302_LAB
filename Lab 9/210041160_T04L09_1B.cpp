@@ -6,24 +6,10 @@ using namespace std;
 class TwoDimensionalShape
 {
 public:
-    double sides;
-    string type;
-    double area;
-    double perimeter;
-    string color;
-
-    void ShapeDetails()
-    {
-        cout << "Number of Sides: " << sides << endl;
-        cout << "Type: " << type << endl;
-        cout << "Area: " << area << endl;
-        cout << "Perimeter: " << perimeter << endl;
-        cout << "Color: " << color << endl;
-    }
-
-    virtual void setColor()
-    {
-    }
+    virtual double getPerimeter() = 0;
+    virtual double getArea() = 0;
+    virtual void setColor() = 0;
+    virtual void ShapeDetails() = 0;
 };
 
 class Triangle : public TwoDimensionalShape
@@ -32,34 +18,38 @@ private:
     double side1;
     double side2;
     double side3;
+    string color;
 
 public:
     Triangle(double a, double b, double c) : side1(a), side2(b), side3(c)
     {
-        sides = 3;
-        type = "Triangle";
-        setPerimeter();
-        setArea();
     }
 
-    void setPerimeter()
+    double getPerimeter()
     {
-        perimeter = side1 + side2 + side3;
+        return side1 + side2 + side3;
     }
 
-    void setArea()
+    double getArea()
     {
-        double s = perimeter / 2;
+        double s = getPerimeter() / 2;
         double AreaSquare = s * (s - side1) * (s - side2) * (s - side3);
-        area = sqrt(AreaSquare);
+        return sqrt(AreaSquare);
     }
 
     void setColor()
     {
         cout << "Set the color: ";
-        string input;
-        cin >> input;
-        color = input;
+        cin >> color;
+    }
+
+    void ShapeDetails()
+    {
+        cout << "Number of Sides: 3" << endl;
+        cout << "Type: Triangle" << endl;
+        cout << "Area: " << getArea() << endl;
+        cout << "Perimeter: " << getPerimeter() << endl;
+        cout << "Color: " << color << endl;
     }
 };
 
@@ -69,32 +59,36 @@ class Rectangle : public TwoDimensionalShape
 private:
     double length;
     double breadth;
+    string color;
 
 public:
     Rectangle(double l, double b) : length(l), breadth(b)
     {
-        sides = 4;
-        type = "Rectangle";
-        setPerimeter();
-        setArea();
     }
 
-    void setPerimeter()
+    double getPerimeter()
     {
-        perimeter = 2 * (length + breadth);
+        return 2 * (length + breadth);
     }
 
-    void setArea()
+    double getArea()
     {
-        area = length * breadth;
+        return length * breadth;
     }
 
     void setColor()
     {
         cout << "Set the color: ";
-        string input;
-        cin >> input;
-        color = input;
+        cin >> color;
+    }
+
+    void ShapeDetails()
+    {
+        cout << "Number of Sides: 4" << endl;
+        cout << "Type: Rectangle" << endl;
+        cout << "Area: " << getArea() << endl;
+        cout << "Perimeter: " << getPerimeter() << endl;
+        cout << "Color: " << color << endl;
     }
 };
 
@@ -102,32 +96,36 @@ class Square : public TwoDimensionalShape
 {
 private:
     double length;
+    string color;
 
 public:
     Square(double s) : length(s)
     {
-        sides = 4;
-        type = "Square";
-        setPerimeter();
-        setArea();
     }
 
-    void setPerimeter()
+    double getPerimeter()
     {
-        perimeter = 4 * length;
+        return 4 * length;
     }
 
-    void setArea()
+    double getArea()
     {
-        area = length * length;
+        return length * length;
     }
 
     void setColor()
     {
         cout << "Set the color: ";
-        string input;
-        cin >> input;
-        color = input;
+        cin >> color;
+    }
+
+    void ShapeDetails()
+    {
+        cout << "Number of Sides: 4" << endl;
+        cout << "Type: Square" << endl;
+        cout << "Area: " << getArea() << endl;
+        cout << "Perimeter: " << getPerimeter() << endl;
+        cout << "Color: " << color << endl;
     }
 };
 
@@ -135,32 +133,36 @@ class Hexagon : public TwoDimensionalShape
 {
 private:
     double length;
+    string color;
 
 public:
     Hexagon(double s) : length(s)
     {
-        sides = 6;
-        type = "Hexagon";
-        setPerimeter();
-        setArea();
     }
 
-    void setPerimeter()
+    double getPerimeter()
     {
-        perimeter = 6 * length;
+        return 6 * length;
     }
 
-    void setArea()
+    double getArea()
     {
-        area = (3 * sqrt(3) * length * length) / 2;
+        return (3 * sqrt(3) * length * length) / 2;
     }
 
     void setColor()
     {
         cout << "Set the color: ";
-        string input;
-        cin >> input;
-        color = input;
+        cin >> color;
+    }
+
+    void ShapeDetails()
+    {
+        cout << "Number of Sides: 6" << endl;
+        cout << "Type: Hexagon" << endl;
+        cout << "Area: " << getArea() << endl;
+        cout << "Perimeter: " << getPerimeter() << endl;
+        cout << "Color: " << color << endl;
     }
 };
 
@@ -170,7 +172,7 @@ void sortShapePerimeter(TwoDimensionalShape **shapes, int n)
     {
         for (int j = 0; j < n - i - 1; j++)
         {
-            if (shapes[j]->perimeter < shapes[j + 1]->perimeter)
+            if (shapes[j]->getPerimeter() < shapes[j + 1]->getPerimeter())
             {
                 TwoDimensionalShape *temp = shapes[j];
                 shapes[j] = shapes[j + 1];
