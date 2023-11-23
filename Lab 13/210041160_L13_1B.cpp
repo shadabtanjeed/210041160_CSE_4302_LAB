@@ -78,10 +78,14 @@ int score_equal_to_X(vector<pair<string, int>> &v1, int x)
     return count;
 }
 
-int calculate_average(vector<pair<string, int>> &v1)
+float calculate_average(vector<pair<string, int>> &v1)
 {
-    int result = accumulate(v1.begin(), v1.end(), 0, [](int a, pair<string, int> b)
-                            { return a + b.second; });
+    float result = accumulate(v1.begin(), v1.end(), 0, [](int a, pair<string, int> b)
+                              { return a + b.second; });
+
+    float size = v1.size();
+
+    return result / size;
 }
 
 int main()
@@ -192,4 +196,6 @@ int main()
     }
 
     // task 8
+
+    cout << "Average score: " << calculate_average(v1) << endl;
 }
