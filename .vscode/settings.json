@@ -2,7 +2,10 @@
   "files.associations": {
     "iostream": "cpp",
     "ostream": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "utility": "cpp",
+    "vector": "cpp",
+    "algorithm": "cpp"
   },
   "files.exclude": {
     "**/.git": true,
